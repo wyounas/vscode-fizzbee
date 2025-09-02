@@ -55,7 +55,11 @@ Here are two examples of Fizzbee code rendered with this extension in VS Code:
 5. Open any `.fizz` file to see syntax highlighting.
 ## Contributing
 
-Contributions are welcome! Please submit issues and pull requests on GitHub.
+## Contributing
+
+Contributions are welcome!  
+This project used the help of large language models (LLMs).  
+Please submit issues and pull requests on GitHub.
 
 ## License
 
