@@ -1,6 +1,6 @@
 # Fizzbee Language Support for VS Code
 
-This extension provides syntax highlighting and language support for the Fizzbee model checking language.
+This extension provides syntax highlighting and language support for the [Fizzbee model checking system](https://fizzbee.io/).
 
 
 ## Features
@@ -48,10 +48,11 @@ Here are two examples of Fizzbee code rendered with this extension in VS Code:
 
 ## Installation
 
-1. Copy the extension folder to your VS Code extensions directory
-2. Reload VS Code
-3. Open any `.fizz`file to see syntax highlighting
-
+1. Open Visual Studio Code.
+2. Go to the **Extensions** view by clicking the square icon in the left side of the window.
+3. In the search bar, type **Fizzbee**.
+4. Click **Install** on the extension.
+5. Open any `.fizz` file to see syntax highlighting.
 ## Contributing
 
 Contributions are welcome! Please submit issues and pull requests on GitHub.

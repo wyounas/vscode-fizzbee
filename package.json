@@ -2,7 +2,7 @@
     "name": "vscode-fizzbee",
     "displayName": "Fizzbee",
     "description": "Syntax highlighting and language support for Fizzbee model checking language",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "wyounas",
     "engines": {
         "vscode": "^1.50.0"
