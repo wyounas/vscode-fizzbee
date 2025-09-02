@@ -1,0 +1,262 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Fizzbee",
+    "scopeName": "source.fizzbee",
+    "patterns": [
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#roles"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#variables"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#constants"
+        }
+    ],
+    "repository": {
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.number-sign.fizzbee",
+                    "match": "#.*$"
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.double.fizzbee",
+                    "begin": "\"",
+                    "end": "\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.fizzbee",
+                            "match": "\\\\."
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.single.fizzbee",
+                    "begin": "'",
+                    "end": "'",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.fizzbee",
+                            "match": "\\\\."
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.triple.double.fizzbee",
+                    "begin": "\"\"\"",
+                    "end": "\"\"\"",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.fizzbee",
+                            "match": "\\\\."
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.triple.single.fizzbee",
+                    "begin": "'''",
+                    "end": "'''",
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.fizzbee",
+                            "match": "\\\\."
+                        }
+                    ]
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.float.fizzbee",
+                    "match": "\\b\\d+\\.\\d+\\b"
+                },
+                {
+                    "name": "constant.numeric.integer.fizzbee",
+                    "match": "\\b\\d+\\b"
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.flow.fizzbee",
+                    "match": "\\b(if|elif|else|for|while|break|continue|return|pass)\\b"
+                },
+                {
+                    "name": "keyword.control.action.fizzbee",
+                    "match": "\\b(action|Init)\\b"
+                },
+                {
+                    "name": "keyword.control.role.fizzbee",
+                    "match": "\\b(role)\\b"
+                },
+                {
+                    "name": "keyword.control.block.fizzbee",
+                    "match": "\\b(atomic|serial|parallel|oneof)\\b"
+                },
+                {
+                    "name": "keyword.control.quantifier.fizzbee",
+                    "match": "\\b(any|all)\\b"
+                },
+                {
+                    "name": "keyword.control.assertion.fizzbee",
+                    "match": "\\b(always|eventually|assertion)\\b"
+                },
+                {
+                    "name": "keyword.control.fairness.fizzbee",
+                    "match": "\\b(fair|weak|strong)\\b"
+                },
+                {
+                    "name": "keyword.control.guard.fizzbee",
+                    "match": "\\b(require)\\b"
+                },
+                {
+                    "name": "keyword.operator.logical.fizzbee",
+                    "match": "\\b(and|or|not|in|is)\\b"
+                },
+                {
+                    "name": "keyword.other.fizzbee",
+                    "match": "\\b(def|class|import|from|as|global|nonlocal|del|with|yield)\\b"
+                }
+            ]
+        },
+        "roles": {
+            "patterns": [
+                {
+                    "name": "meta.role.fizzbee",
+                    "begin": "^(\\s*)(role)\\s+([a-zA-Z_][a-zA-Z0-9_]*)\\s*(:)",
+                    "beginCaptures": {
+                        "2": {
+                            "name": "keyword.control.role.fizzbee"
+                        },
+                        "3": {
+                            "name": "entity.name.type.role.fizzbee"
+                        },
+                        "4": {
+                            "name": "punctuation.definition.role.fizzbee"
+                        }
+                    },
+                    "end": "^(?!\\1\\s+|\\s*$)",
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        }
+                    ]
+                }
+            ]
+        },
+        "functions": {
+            "patterns": [
+                {
+                    "name": "meta.function-call.fizzbee",
+                    "match": "\\b([A-Z][a-zA-Z0-9_]*)\\s*(?=\\(.*\\))",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.type.role.constructor.fizzbee"
+                        }
+                    }
+                },
+                {
+                    "name": "entity.name.function.fizzbee",
+                    "match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\s*(?=\\()"
+                },
+                {
+                    "name": "support.function.builtin.fizzbee",
+                    "match": "\\b(print|len|range|enumerate|zip|map|filter|sum|min|max|abs|round|sorted|reversed|list|dict|set|tuple|str|int|float|bool|type|isinstance|hasattr|getattr|setattr|delattr|format)\\b"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.language.self.fizzbee",
+                    "match": "\\b(self)\\b"
+                },
+                {
+                    "name": "variable.language.special.fizzbee",
+                    "match": "\\b(self)\\.(\\w+)\\b",
+                    "captures": {
+                        "1": {
+                            "name": "variable.language.self.fizzbee"
+                        },
+                        "2": {
+                            "name": "variable.other.member.fizzbee"
+                        }
+                    }
+                },
+                {
+                    "name": "variable.language.special.id.fizzbee",
+                    "match": "\\b(self)\\.((_id__))\\b",
+                    "captures": {
+                        "1": {
+                            "name": "variable.language.self.fizzbee"
+                        },
+                        "2": {
+                            "name": "variable.language.special.fizzbee"
+                        }
+                    }
+                },
+                {
+                    "name": "variable.language.fizzbee",
+                    "match": "\\b(cls)\\b"
+                },
+                {
+                    "name": "variable.other.fizzbee",
+                    "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.assignment.fizzbee",
+                    "match": "(\\+=|-=|\\*=|/=|//=|%=|\\*\\*=|&=|\\|=|\\^=|>>=|<<=|=)"
+                },
+                {
+                    "name": "keyword.operator.arithmetic.fizzbee",
+                    "match": "(\\+|-|\\*|/|//|%|\\*\\*)"
+                },
+                {
+                    "name": "keyword.operator.comparison.fizzbee",
+                    "match": "(==|!=|<=|>=|<|>)"
+                },
+                {
+                    "name": "keyword.operator.bitwise.fizzbee",
+                    "match": "(&|\\||\\^|~|<<|>>)"
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.fizzbee",
+                    "match": "\\b(True|False|None)\\b"
+                }
+            ]
+        }
+    }
+}

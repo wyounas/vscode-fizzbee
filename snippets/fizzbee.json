@@ -1,0 +1,158 @@
+{
+    "Action": {
+        "prefix": "action",
+        "body": [
+            "action ${1:ActionName}:",
+            "\t${2:# Action body}",
+            "\t$0"
+        ],
+        "description": "Create a new action"
+    },
+    "Atomic Action": {
+        "prefix": "atomic action",
+        "body": [
+            "atomic action ${1:ActionName}:",
+            "\t${2:# Atomic action body}",
+            "\t$0"
+        ],
+        "description": "Create a new atomic action"
+    },
+    "Fair Action": {
+        "prefix": "fair action",
+        "body": [
+            "fair action ${1:ActionName}:",
+            "\t${2:# Fair action body}",
+            "\t$0"
+        ],
+        "description": "Create a new fair action"
+    },
+    "Init Action": {
+        "prefix": "init",
+        "body": [
+            "action Init:",
+            "\t${1:# Initialize system state}",
+            "\t$0"
+        ],
+        "description": "Create Init action"
+    },
+    "Role": {
+        "prefix": "role",
+        "body": [
+            "role ${1:RoleName}:",
+            "\taction ${2:ActionName}:",
+            "\t\t${3:# Action implementation}",
+            "\t\tself.${4:state} = ${5:value}",
+            "\t$0"
+        ],
+        "description": "Create a new role"
+    },
+    "Role with Init": {
+        "prefix": "role init",
+        "body": [
+            "role ${1:RoleName}:",
+            "\taction Init:",
+            "\t\tself.${2:state} = ${3:initial_value}",
+            "\t",
+            "\taction ${4:ActionName}:",
+            "\t\t${5:# Action implementation}",
+            "\t$0"
+        ],
+        "description": "Create a role with initialization"
+    },
+    "Role Action": {
+        "prefix": "self action",
+        "body": [
+            "action ${1:ActionName}:",
+            "\tself.${2:property} = ${3:value}",
+            "\t$0"
+        ],
+        "description": "Create an action within a role"
+    },
+    "Role Instance": {
+        "prefix": "new role",
+        "body": [
+            "${1:instance} = ${2:RoleName}(${3:param}=${4:value})"
+        ],
+        "description": "Create a role instance"
+    },
+    "Self Reference": {
+        "prefix": "self",
+        "body": [
+            "self.${1:property}"
+        ],
+        "description": "Reference to self property"
+    },
+    "Always Assertion": {
+        "prefix": "always",
+        "body": [
+            "always assertion ${1:AssertionName}:",
+            "\treturn ${2:condition}",
+            "\t$0"
+        ],
+        "description": "Create an always assertion"
+    },
+    "Eventually Assertion": {
+        "prefix": "eventually",
+        "body": [
+            "eventually assertion ${1:AssertionName}:",
+            "\treturn ${2:condition}",
+            "\t$0"
+        ],
+        "description": "Create an eventually assertion"
+    },
+    "Any Statement": {
+        "prefix": "any",
+        "body": [
+            "any ${1:variable}:",
+            "\t${2:variable} = ${3:value}",
+            "\t$0"
+        ],
+        "description": "Create an any statement"
+    },
+    "Atomic Block": {
+        "prefix": "atomic",
+        "body": [
+            "atomic:",
+            "\t${1:# Atomic block}",
+            "\t$0"
+        ],
+        "description": "Create an atomic block"
+    },
+    "Serial Block": {
+        "prefix": "serial",
+        "body": [
+            "serial:",
+            "\t${1:# Step 1}",
+            "\t${2:# Step 2}",
+            "\t$0"
+        ],
+        "description": "Create a serial block"
+    },
+    "Parallel Block": {
+        "prefix": "parallel",
+        "body": [
+            "parallel:",
+            "\t${1:# Parallel step 1}",
+            "\t${2:# Parallel step 2}",
+            "\t$0"
+        ],
+        "description": "Create a parallel block"
+    },
+    "Oneof Block": {
+        "prefix": "oneof",
+        "body": [
+            "oneof:",
+            "\t${1:# Option 1}",
+            "\t${2:# Option 2}",
+            "\t$0"
+        ],
+        "description": "Create a oneof block"
+    },
+    "Require Statement": {
+        "prefix": "require",
+        "body": [
+            "require ${1:condition}"
+        ],
+        "description": "Create a require statement"
+    }
+}

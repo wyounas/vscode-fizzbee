@@ -1,0 +1,52 @@
+{
+    "name": "vscode-fizzbee",
+    "displayName": "Fizzbee",
+    "description": "Syntax highlighting and language support for Fizzbee model checking language",
+    "version": "0.1.1",
+    "publisher": "wyounas",
+    "engines": {
+        "vscode": "^1.50.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "keywords": [
+        "fizzbee",
+        "model checking",
+        "formal methods",
+        "verification"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/wyounas/vscode-fizzbee"
+    },
+    "icon": "icon.png",
+    "contributes": {
+        "languages": [
+            {
+                "id": "fizzbee",
+                "aliases": [
+                    "Fizzbee",
+                    "fizzbee"
+                ],
+                "extensions": [
+                    ".fizz"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "fizzbee",
+                "scopeName": "source.fizzbee",
+                "path": "./syntaxes/fizzbee.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "fizzbee",
+                "path": "./snippets/fizzbee.json"
+            }
+        ]
+    }
+}
